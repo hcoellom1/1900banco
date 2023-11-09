@@ -1,4 +1,4 @@
-package hn.unah.lenguajes.banco.modelos;
+package hn.lenguajes0.banco.modelos;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,7 +30,7 @@ public class Direcciones {
     private String ciudad;
 
     @OneToOne(mappedBy = "direccion")
-    private Clientes cliente;
+    private Cliente cliente;
 
     
     

@@ -1,4 +1,4 @@
-package hn.unah.lenguajes.banco.modelos;
+package hn.lenguajes0.banco.modelos;
 
 import java.util.Date;
 import java.util.List;
@@ -43,7 +43,7 @@ public class Cuenta {
 
     @ManyToOne
     @JoinColumn(name="dni")
-    private Clientes cliente;
+    private Cliente cliente;
 
     @OneToMany(mappedBy = "cuenta")
     private List<Movimiento> movimientos;

@@ -1,4 +1,4 @@
-package hn.unah.lenguajes.banco.modelos;
+package hn.lenguajes0.banco.modelos;
 
 import java.util.Date;
 
