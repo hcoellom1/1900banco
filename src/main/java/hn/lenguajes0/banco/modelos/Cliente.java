@@ -1,9 +1,11 @@
 package hn.lenguajes0.banco.modelos;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -24,8 +26,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Cliente {
 
-    @Id
-    @Column(name="dni")
+    @Id    
     private String dni;
 
     private String nombre;
@@ -39,12 +40,11 @@ public class Cliente {
     @Column(name="fechaingreso")
     private Date fechaIngreso; 
 
-    @OneToOne
-    @JoinColumn(name="iddireccion")
+    @OneToOne(cascade =  CascadeType.ALL)
     private Direcciones direccion;
 
-    @OneToMany(mappedBy = "cliente")
-    private List<Cuenta> cuentas;
+    @OneToMany(mappedBy = "cliente", cascade =  CascadeType.ALL)
+    private List<Cuenta> cuentas = new ArrayList<>();
     
     
 

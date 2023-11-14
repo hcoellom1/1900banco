@@ -17,8 +17,10 @@ public class ClienteServiceImpl implements ClienteService{
 
     @Override
     public Cliente crearCliente(Cliente nvoCliente) {
-        Cliente clienteCreado = clienteRepository.save(nvoCliente);
-        return clienteCreado;
+        //Direcciones direccion = nvoCliente.getDireccion();
+        //direccion.setCliente(nvoCliente);
+        //nvoCliente.setDireccion(direccion);
+        return clienteRepository.save(nvoCliente);        
 
     }
 
@@ -30,8 +32,9 @@ public class ClienteServiceImpl implements ClienteService{
 
     @Override
     public List<Cliente> obtenerTodosCliente() {
+        return this.clienteRepository.findAll();
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'obtenerTodosCliente'");
+        //throw new UnsupportedOperationException("Unimplemented method 'obtenerTodosCliente'");
     }
     
 }
