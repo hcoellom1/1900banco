@@ -2,6 +2,7 @@ package hn.lenguajes0.banco.servicios.impl;
 
 import java.util.List;
 
+import org.apache.el.stream.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,15 +27,21 @@ public class ClienteServiceImpl implements ClienteService{
 
     @Override
     public Cliente eliminarClientePorId(String numeroCliente) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eliminarClientePorId'");
+        Cliente clienteBuscado = null;        
+        if(this.clienteRepository.existsById(numeroCliente)){
+            this.clienteRepository.deleteById(numeroCliente);
+        }
+        
+        return clienteBuscado;
     }
+
+    
 
     @Override
     public List<Cliente> obtenerTodosCliente() {
-        return this.clienteRepository.findAll();
-        // TODO Auto-generated method stub
-        //throw new UnsupportedOperationException("Unimplemented method 'obtenerTodosCliente'");
+        return this.clienteRepository.findAll();        
     }
+
+
     
 }

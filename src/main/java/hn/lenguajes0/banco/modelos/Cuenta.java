@@ -30,7 +30,7 @@ public class Cuenta {
 
     @Id
     @Column(name="idcuenta")
-    @GeneratedValue(strategy =  GenerationType.AUTO)    
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)    
     private int idCuenta;
 
     @Column(name="fechaapertura")

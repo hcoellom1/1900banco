@@ -25,7 +25,7 @@ public class Movimiento {
 
     @Id
     @Column(name="idmovimiento")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idMovimiento;
 
     @Column(name="fechamovimiento")

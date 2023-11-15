@@ -22,8 +22,17 @@ public class ClienteController {
     private ClienteServiceImpl clienteServiceImpl;
 
     @PostMapping("/crear")
-    public Cliente crearCliente(@RequestBody Cliente nvoCliente){        
+    public Cliente crearCliente(@RequestBody Cliente nvoCliente){     
+        if(nvoCliente.getDireccion() != null)   {
+            nvoCliente.getDireccion().setCliente(nvoCliente);
+        }
+
         return this.clienteServiceImpl.crearCliente(nvoCliente);
     }    
+
+    @GetMapping("/obtener/todos")
+    public List<Cliente> obtenerTodos(){
+        return this.clienteServiceImpl.obtenerTodosCliente();
+    }
 
 }

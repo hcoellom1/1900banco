@@ -25,7 +25,7 @@ public class Direcciones {
 
     @Id
     @Column(name="iddireccion")
-    @GeneratedValue(strategy = GenerationType.AUTO)    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)    
     private int idDireccion;
 
     private String departamento;
@@ -33,7 +33,8 @@ public class Direcciones {
     private String ciudad;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "direccion")    
+    @OneToOne
+    @JoinColumn(name="dni", referencedColumnName = "dni")
     private Cliente cliente;
 
     

@@ -40,7 +40,7 @@ public class Cliente {
     @Column(name="fechaingreso")
     private Date fechaIngreso; 
 
-    @OneToOne(cascade =  CascadeType.ALL)
+    @OneToOne(mappedBy = "cliente", cascade =  CascadeType.ALL)
     private Direcciones direccion;
 
     @OneToMany(mappedBy = "cliente", cascade =  CascadeType.ALL)
