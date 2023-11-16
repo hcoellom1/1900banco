@@ -26,13 +26,15 @@ public class ClienteServiceImpl implements ClienteService{
     }
 
     @Override
-    public Cliente eliminarClientePorId(String numeroCliente) {
-        Cliente clienteBuscado = null;        
-        if(this.clienteRepository.existsById(numeroCliente)){
-            this.clienteRepository.deleteById(numeroCliente);
+    public String eliminarClientePorId(String numeroCliente) {
+        Cliente cteEliminar = this.clienteRepository.findById(numeroCliente).get();
+
+        if(cteEliminar != null){
+            this.clienteRepository.delete(cteEliminar);
+            return "Se ha eliminado el cliente: " + cteEliminar.getDni(); 
         }
-        
-        return clienteBuscado;
+
+        return "No existe el cliente con dni: " + numeroCliente;
     }
 
     
@@ -40,6 +42,20 @@ public class ClienteServiceImpl implements ClienteService{
     @Override
     public List<Cliente> obtenerTodosCliente() {
         return this.clienteRepository.findAll();        
+    }
+
+    @Override
+    public String actualizarCliente(String dni, Cliente cliente) {
+        Cliente cteActualizar = this.clienteRepository.findById(dni).get();
+
+        if(cteActualizar != null){
+            cteActualizar.setCorreo(cliente.getCorreo());
+            cteActualizar.setTelefono(cliente.getTelefono());
+            this.clienteRepository.save(cteActualizar);
+            return "Se ha actualizado el cliente: " + dni;
+        }
+
+        return "No existe el cliente con DNI: " + dni;     
     }
 
 

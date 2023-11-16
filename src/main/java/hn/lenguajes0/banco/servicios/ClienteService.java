@@ -8,10 +8,11 @@ public interface ClienteService {
 
     public Cliente crearCliente(Cliente nvoCliente);
 
-    public Cliente eliminarClientePorId(String numeroCliente);
+    public String eliminarClientePorId(String numeroCliente);
 
     public List<Cliente> obtenerTodosCliente();
 
+    public String actualizarCliente(String dni, Cliente cliente);
     
     
 }
